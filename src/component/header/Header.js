@@ -45,8 +45,9 @@ class Header extends Component {
 	
 					<div className="header_search" style={this.props.wide_search_bar?{width:450,transition: "all ease-in-out 0.3s"}:{width:50,transition: "all ease-in-out 0.3s"}}>
 						<div className="header_search_space">
-							<input className="header_search_input" autoFocus={this.props.wide_search_bar}  style={this.props.wide_search_bar?{display:"inline-block"}:{display:"none"}} onChange={this.handleChange} type="text" placeholder="Search Here"></input>
-
+							<div className="search-container">
+                <input className={(this.props.wide_search_bar)?"header_search_input_after":"header_search_input"} autoFocus={this.props.wide_search_bar}  style={this.props.wide_search_bar?{display:"inline-block",width:"300px !important"}:{display:"none",width:"0 !important"}} onChange={this.handleChange} type="text" placeholder="Search Here"></input>
+              </div>
 							<button className="header_search_btn" onClick={this.props.openSearchBar}>
 								<div className="header_search_btn_sub">
 									<div className="search_icon">

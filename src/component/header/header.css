@@ -35,7 +35,19 @@
 .header_search_space{
 	height: 100%;
 }
+.search-container{
+	overflow: hidden;
+	height: 100%;
+  border-radius: 50%;
+}
 .header_search_input{
+	width: 0 !important;
+	display: none;	
+}
+
+.header_search_input_after{
+	width: 300px !important;
+	display: inline-block;
 	height: 100%;
 	border: 0;
 	background-color: rgb(3, 3, 43);
@@ -44,13 +56,12 @@
 	outline: none;
 	color: white;
 	margin-left: 9px;
-	/* display: inline-block; */
 	padding: 0;
 	position: relative;
-	/* display: none; */
 }
+
 .header_search_btn{
-	background-color: yellow;
+	background-color: rgb(3, 3, 43);
 	height: 44px;
 	width: 44px;
 	border-radius: 22px;
@@ -60,6 +71,7 @@
 	padding: 0;
 	float: right;
 	top: 28px;
+	right: 53px;
 	position: absolute;
 }
 .header_search_btn_sub{
