@@ -1,0 +1,123 @@
+
+/* CARD GROUP */
+
+.groups{
+  top: 100px;
+  background-color: rgb(3, 3, 43);
+  position: relative;
+  z-index: 3;
+}
+.card_group{
+  text-align: center;
+  margin: 20px 0;
+  display: inline;
+}
+.abcd{
+  border: 1px solid #adadad;
+  /* overflow: hidden; */
+  box-shadow: 3px 6px 10px white;
+  background-color: #e2dfdf;
+}
+.group_logo{
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  margin-top: 10px;
+  border: 1.5px solid rgb(3, 3, 43);
+  box-shadow: 3px 1px 5px rgba(3, 3, 43, .5);
+}
+.group_name{
+  /* border: 1px solid black; */
+  height: 55px;
+  align-items: center;
+  margin-top: 5px;
+}
+.group_name h3{
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  color: black;
+  text-shadow: 3px 1px 5px rgba(0, 0, 0, .5);
+}
+.img_place{
+  margin: auto;
+}
+
+/* ONE IMAGE */
+
+.moma{
+  height: 208px;
+}
+.img_show_div{
+  width: 22.9%;
+  padding-top: 22.9%;
+  display: inline-block;
+  /* background-color: blueviolet; */
+  /* border: 1px solid black; */
+  position: relative;
+  overflow: hidden;
+  margin: 2px;
+  transition: all ease-in-out .3s;
+}
+.img_show_wt{
+  height: 100%;
+  width: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+.img_show_ht{
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+.img_show_div:hover{
+  z-index: 1;
+  height: 25%;
+  width: 25%;
+  transition: all ease-in-out .3s;
+  margin: 2px -2px;
+  overflow: visible;
+}
+.img_show_div:hover .img_show_wt{
+  box-shadow: 2px 2px 2px black,
+  2px 2px 3px white;
+  height: 97%;
+  /* top : 50%; */
+  left: 50%;
+  transform: translate(-50%);
+}
+.img_show_div:hover .img_show_ht{
+  box-shadow: 2px 2px 2px black,
+  2px 2px 3px white;
+  width: 97%;
+  /* top : 50%; */
+  left: 50%;
+  transform: translate(-50%);
+}
+
+
+/* GROUP LIST */
+
+.group_list{
+  /* background-color: cornflowerblue; */
+  position: fixed;
+  margin: 10px 0;
+  align-items: center;
+  text-align: center;
+}
+
+/* GROUP LIST ELEMENT */
+
+.group_list_name p{
+  margin: 0;
+}
+.space{
+  flex: 1;
+}

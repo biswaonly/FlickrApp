@@ -1,0 +1,101 @@
+/* HEADER */
+.header{
+	height: 100px;
+	width: 100%;
+	top: 0;
+	left: 0;
+	border-bottom: 1px solid;
+	position: fixed;
+	background-color: #e2dfdf;
+	z-index: 5;
+  box-shadow: 3px 1px 5px rgba(3, 3, 43, .5);
+}
+.header_nav{
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+.header_logo{
+	margin: 0 40px;
+	padding: 0;
+	font-size: 30px;
+}
+.space{
+	flex: 1;
+}
+.header_search{
+	height: 50px;
+	width: 50px;
+	margin: 0 50px;
+	background-color: rgb(3, 3, 43);
+	border-radius: 30px;
+	border: 3px solid white;
+  box-shadow: 3px 1px 5px rgba(3, 3, 43, .5);
+	}
+.header_search_space{
+	height: 100%;
+}
+.header_search_input{
+	height: 100%;
+	border: 0;
+	background-color: rgb(3, 3, 43);
+	width: 300px;
+	border-radius: 30px;
+	outline: none;
+	color: white;
+	margin-left: 9px;
+	/* display: inline-block; */
+	padding: 0;
+	position: relative;
+	/* display: none; */
+}
+.header_search_btn{
+	background-color: yellow;
+	height: 44px;
+	width: 44px;
+	border-radius: 22px;
+	outline: none;
+	border: 0;
+	display: inline-block;
+	padding: 0;
+	float: right;
+	top: 28px;
+	position: absolute;
+}
+.header_search_btn_sub{
+	height: 44px;
+	width: 44px;
+	border: 0;
+	background-color: rgb(3, 3, 43);
+	border-radius: 22px;
+	background-color: transparent
+}
+.search_icon{
+	width: 22px;
+	height: 22px;
+	border-radius: 13px;
+	background-color: white;
+	top: 4px;
+	left: 11px;
+	position: relative;
+}
+.icon_black{
+	width: 16px;
+	height: 16px;
+	border-radius: 9px;
+	background-color: rgb(3, 3, 43);
+	top: 3px;
+	left: 3px;
+	position: relative;
+}
+.icon_stick{
+	height: 14px;
+	width: 3px;
+	background-color: white;
+	border-radius: 3px;
+	transform: rotate(-28deg);
+	top: 2px;
+	left: 28px;
+	position: relative;
+	transition: all ease-in-out 0.3s;
+}
