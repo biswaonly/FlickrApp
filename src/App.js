@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './component/header/Header';
-import { Route , withRouter } from "react-router-dom";
-import Groups from './component/groups/Groups';
-import GroupEntry from './component/GroupEntry/GroupEntry';
+import { withRouter } from "react-router-dom";
+import AppRoute from './router/index'
 
 
 class App extends Component {
@@ -11,8 +10,7 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <Header />
-        <Route exact path="/" component={Groups}></Route>
-        <Route path="/group-entry" component={GroupEntry}></Route> 
+        <AppRoute />
       </div>
     );
   }

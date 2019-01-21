@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import OneImage from './OneImage';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router';
+import { withRouter } from "react-router-dom";
 
 class CardGroup extends Component {
-  state={
-    redirect : false
-  }
-  groupEntry = () => {
-    this.setState({redirect: true});
+  cardClick =(e)=>{
+    e.preventDefault();
+    return this.props.history.push({pathname: '/group-entry', id: this.props.item.id})
   }
   render() {
-    if (this.state.redirect) {
-      return <Redirect push to="/group-entry" />;
-    }
+    
     const srcpath =(this.props.item.iconserver === "0")?(
         require(`../../static/default/default_group.png`)
       ):
@@ -22,8 +18,8 @@ class CardGroup extends Component {
       )
     
     return (
-      <div className="card_group col-sm-6" onClick={this.props.groupEntry}>
-        <div className="abcd">
+      <div className="card_group col-sm-6" onClick={this.cardClick}>
+        <div className="abcd" >
           <img className="group_logo" src={srcpath} alt={this.props.item.name}></img>
           <div className="group_name">
             <h3>{this.props.item.name}</h3>
@@ -42,8 +38,17 @@ class CardGroup extends Component {
 
 function mapStateToProps(state) {
   return {
-    groups: state.groups
+    groups: state.groups,
+    redirect : state.redirect,
   }
 }
 
-export default connect(mapStateToProps)(CardGroup);
+function mapDispatchToProps(dispatch) {
+  return{
+    groupEntry: (abs)=>{
+      const action = {type : "YOU_ARE_SELECTED", pass : abs}
+      dispatch(action)
+    }
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CardGroup));
