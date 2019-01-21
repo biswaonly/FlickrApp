@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './header.css';
+import { Link } from "react-router-dom";
 
 class Header extends Component {
 
@@ -39,6 +40,11 @@ class Header extends Component {
 				<nav className="header_nav">
 
 					<div className="header_logo">THE LOGO</div>
+          <div>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+          </div>
 
 					<div className="space"></div>
 

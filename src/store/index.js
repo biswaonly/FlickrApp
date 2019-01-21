@@ -2,7 +2,11 @@ import { createStore } from 'redux';
  
 const initialState={
   groups : [],
-  wide_search_bar : false
+  wide_search_bar : false,
+  redirect : false,
+  groupInfo : [],
+  group_images : [],
+  last_data : undefined
 }
 
 const reducer = (state = initialState, action)=>{
@@ -18,6 +22,16 @@ const reducer = (state = initialState, action)=>{
 
     case 'OPEN_SEARCH_BAR':
       return Object.assign({}, state, {wide_search_bar: !state.wide_search_bar})
+
+    case 'YOU_ARE_SELECTED':
+      return Object.assign({}, state, {redirect : true, groupInfo : action.pass, last_data : action.pass.id})
+
+    case 'ADD_IMAGES':
+      return Object.assign({}, state, {group_images : action.pass})
+    
+    case 'ADD_SINGLE_GROUP':
+    console.log("came to single group" , action.pass )
+      return Object.assign({}, state, {singledata : action.pass})
 
     default:
       return state

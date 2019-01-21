@@ -4,14 +4,8 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 
 class CardGroup extends Component {
-  state={
-    redirect : false
-  }
-  groupEntry = () => {
-    this.setState({redirect: true});
-  }
   render() {
-    if (this.state.redirect) {
+    if (this.props.redirect) {
       return <Redirect push to="/group-entry" />;
     }
     const srcpath =(this.props.item.iconserver === "0")?(
@@ -22,8 +16,8 @@ class CardGroup extends Component {
       )
     
     return (
-      <div className="card_group col-sm-6" onClick={this.props.groupEntry}>
-        <div className="abcd">
+      <div className="card_group col-sm-6" onClick={()=>this.props.groupEntry({id:this.props.item.id})}>
+        <div className="abcd" >
           <img className="group_logo" src={srcpath} alt={this.props.item.name}></img>
           <div className="group_name">
             <h3>{this.props.item.name}</h3>
@@ -42,8 +36,17 @@ class CardGroup extends Component {
 
 function mapStateToProps(state) {
   return {
-    groups: state.groups
+    groups: state.groups,
+    redirect : state.redirect,
   }
 }
 
-export default connect(mapStateToProps)(CardGroup);
+function mapDispatchToProps(dispatch) {
+  return{
+    groupEntry: (abs)=>{
+      const action = {type : "YOU_ARE_SELECTED", pass : abs}
+      dispatch(action)
+    }
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(CardGroup);

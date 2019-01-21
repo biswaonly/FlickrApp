@@ -1,0 +1,14 @@
+.group_entry{
+	top: 100px;
+  left: 0;
+  background-color: rgb(3, 3, 43);
+  position: relative;
+  width: 100vw;
+}
+.group_entry_images{
+  width: 100%;
+}
+.entry_img{
+  width: 100%;
+  height: auto;
+}

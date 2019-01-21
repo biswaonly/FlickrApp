@@ -11,8 +11,8 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <Header />
-        <Route exact path="/" Component={Groups}></Route>
-        <Route path="/group-entry" component={GroupEntry}></Route> 
+        <Route exact path="/" component={Groups}></Route>
+        <Route to="/group-entry" path="/group-entry" component={GroupEntry}></Route> 
       </div>
     );
   }
