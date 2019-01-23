@@ -15,7 +15,6 @@
   padding: 10px 0;
   border-radius: 60px;
   border: 1px solid black;
-  /* margin: 15px 0; */
 }
 .group_logo{
   border: 0;
@@ -31,5 +30,4 @@
   height: auto;
 }
 .container-fluid{
-  /* padding: 0; */
 }
