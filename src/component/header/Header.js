@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './header.css';
 import { Link } from "react-router-dom";
+import {fetchGroup} from '../../fetch/fetchData';
 
 class Header extends Component {
 
   handleChange=(event)=>{
+
     if(event.target.value){
-      fetch(`https://api.flickr.com/services/rest/?method=flickr.groups.search&api_key=`+process.env.REACT_APP_API_KEY+`&text=`+event.target.value+`&per_page=10&format=json&nojsoncallback=1`)
-      .then(response=>{
-        return response.json();
-      })
-      .then(data=>{
-        let groups= data.groups.group.map((group)=>{
+      fetchGroup(`https://api.flickr.com/services/rest/?method=flickr.groups.search&api_key=`+process.env.REACT_APP_API_KEY+`&text=`+event.target.value+`&per_page=10&format=json&nojsoncallback=1`,(error,groups)=>{
+        if(error){
+          return console.error(error);
+        }
+
+        let newGroups= groups.map((group)=>{
           return ({
             id : group.nsid,
             name : group.name,
@@ -21,15 +23,11 @@ class Header extends Component {
           })
         })
         
-        this.props.addGroup({
-          groups
-        });
-      })
+        this.props.addGroup({ newGroups });
+      });            
     }
     else{
-      this.props.addGroup({
-        groups:[]
-      });
+      this.props.addGroup({ newGroups:[] });
     }
   }
 
@@ -47,7 +45,6 @@ class Header extends Component {
           </div>
 
 					<div className="space"></div>
-
 	
 					<div className="header_search" style={this.props.wide_search_bar?{width:450,transition: "all ease-in-out 0.3s"}:{width:50,transition: "all ease-in-out 0.3s"}}>
 						<div className="header_search_space">
@@ -80,7 +77,7 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch) {
   return{
     addGroup : (groups)=>{
-      const action = {type : 'SEARCH_FOR_GROUP', groups: groups.groups}
+      const action = {type : 'SEARCH_FOR_GROUP', groups: groups.newGroups}
       dispatch(action);
 		},
 		openSearchBar : ()=>{

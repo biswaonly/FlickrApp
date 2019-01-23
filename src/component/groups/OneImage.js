@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {fetchPhotos} from '../../fetch/fetchData';
 
 class OneImage extends Component {
   
@@ -7,23 +8,24 @@ class OneImage extends Component {
     this.props.addStl({[e.target.id] : (e.target.offsetHeight > e.target.offsetWidth)?true:false})
   }
   componentDidMount(){
-    fetch(`https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=`+process.env.REACT_APP_API_KEY+`&group_id=`+this.props.item.id+`&per_page=8&format=json&nojsoncallback=1`)
-    .then(response=>{
-      return response.json();
-    })
-    .then(data=>{
-      if(!data.photos){
-        return;
+
+    fetchPhotos(`https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=`+process.env.REACT_APP_API_KEY+`&group_id=`+this.props.item.id+`&per_page=8&format=json&nojsoncallback=1`,(error,photos)=>{
+      if(error){
+        return console.error(error);
       }
-      const photos = data.photos.photo.map((pic)=>{
+
+      const newPhotos = photos.map((pic)=>{
         return ({
           id:pic.id,
           path: "https://farm"+pic.farm+".staticflickr.com/"+pic.server+"/"+pic.id+"_"+pic.secret+".jpg"
         })        
       })    
-      this.props.addToPhotos({[this.props.item.id] : photos})
-    })
+
+      this.props.addToPhotos({[this.props.item.id] : newPhotos})
+    });
   }
+
+
   render() {
     return (
       <div className="moma">
