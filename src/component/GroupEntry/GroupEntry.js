@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './groupEntry.css';
-import fetchData from '../../fetch/fetchData';
+import {fetchPhotos} from '../../fetch/fetchData';
 import {withRouter} from 'react-router-dom';
 
 class Groups extends Component {
@@ -25,7 +25,7 @@ class Groups extends Component {
       sessionStorage.setItem("iconserver",group.iconserver);
     }
         
-    fetchData(`https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=`+process.env.REACT_APP_API_KEY+`&group_id=`+id+`&per_page=80&format=json&nojsoncallback=1`,(error,photos)=>{
+    fetchPhotos(`https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=`+process.env.REACT_APP_API_KEY+`&group_id=`+id+`&per_page=80&format=json&nojsoncallback=1`,(error,photos)=>{
       if(error){
         return console.error(error);
       }
