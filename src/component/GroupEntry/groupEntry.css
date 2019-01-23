@@ -1,15 +1,35 @@
 .group_entry{
 	top: 100px;
-  left: 0;
-  background-color: rgb(3, 3, 43);
+  background-color: red;
   position: relative;
-  width: 100vw;
+  margin: 0 -15px;
   text-align: center;
+}
+.group_entry_logo_block{
+  width: 100%;
+  padding: 15px 0 0 0;  
+}
+.group_entry_logo_supporter{
+  width: 120px;
+  height: 120px;
+  padding: 10px 0;
+  border-radius: 60px;
+  border: 1px solid black;
+  /* margin: 15px 0; */
+}
+.group_logo{
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 .group_entry_images{
   width: 100%;
+  margin: 0 15px;
 }
 .entry_img{
   width: 100%;
   height: auto;
+}
+.container-fluid{
+  /* padding: 0; */
 }

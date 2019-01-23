@@ -59,14 +59,16 @@ class Groups extends Component {
         
     return (
       <div className="group_entry">
-        <div className="group_entry_logo_suporter">
-          {this.props.singledata?
-          (            
-            <img className="group_logo" src={this.getImage()} alt={this.props.singledata && this.props.singledata.name}/>
-          ):null}
+        <div className="group_entry_logo_block">
+          <div className="group_entry_logo_supporter">
+            {this.props.singledata?
+            (            
+              <img className="group_logo" src={this.getImage()} alt={this.props.singledata && this.props.singledata.name}/>
+            ):null}
+          </div>
         </div>
         <div className="group_entry_name">
-          <h2>{this.props.singledata && this.props.singledata.name}</h2>
+          <h1>{this.props.singledata && this.props.singledata.name}</h1>
         </div>
         <div className="group_entry_images row">
           
